@@ -137,12 +137,12 @@
 
     // firebase push notification
     var firebaseConfig = {
-        apiKey: "AIzaSyB0pWogHh4EW2lqj8_M1mFptMSrSTKXYsI",
-        authDomain: "parso-462c2.firebaseapp.com",
-        projectId: "parso-462c2",
-        storageBucket: "parso-462c2.appspot.com",
-        messagingSenderId: "5600097210",
-        appId: "1:5600097210:web:9d437224b1b139cc9aa383"
+        apiKey: "AIzaSyDzT20rG2a2cJQaDwNX14LQDc-kX0HSH1Q",
+        authDomain: "adaksanat-cafe5.firebaseapp.com",
+        projectId: "adaksanat-cafe5",
+        storageBucket: "adaksanat-cafe5.appspot.com",
+        messagingSenderId: "111948956571",
+        appId: "1:111948956571:web:69026929225b6e3dfe573e",
     };
 
     firebase.initializeApp(firebaseConfig);
@@ -213,6 +213,5 @@
     }, 60000);
 
 </script>
-
 </body>
 </html>
