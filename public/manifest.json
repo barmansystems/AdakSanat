@@ -1,0 +1,9 @@
+{
+    "name": "AdakSanatKhorshidGheshm",
+    "short_name": "AdakSanat",
+    "theme_color": "#fff",
+    "background_color": "#fff",
+    "display": "browser",
+    "scope": "/",
+    "start_url": "/"
+}
