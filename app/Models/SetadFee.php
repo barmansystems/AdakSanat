@@ -1,9 +1,7 @@
 <?php
 
-namespace App\Http\Controllers\Panel;
+namespace App\Models;
 
-use App\Models\Order;
-use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
