@@ -17,8 +17,15 @@ class CustomerController extends Controller
     public function index()
     {
         $this->authorize('customers-list');
+        if (auth()->user()->isAdmin() || auth()->user()->isCEO() || auth()->user()->isItManager()) {
+            $customers = Customer::orderByRaw('-code DESC')->paginate(30);
+//            dd('test');
+        } else {
+            $customers = Customer::where('user_id',auth()->id())->orderByRaw('-code DESC')->paginate(30);
+        }
 
-        $customers = Customer::orderByRaw('-code DESC')->paginate(30);
+
+
         return view('panel.customers.index', compact('customers'));
     }
 
@@ -37,7 +44,6 @@ class CustomerController extends Controller
             'user_id' => auth()->id(),
             'name' => $request->name,
             'code' => $request->customer_code,
-            'type' => $request->type,
             'customer_type' => $request->customer_type,
             'economical_number' => $request->economical_number,
             'national_number' => $request->national_number,
@@ -83,7 +89,6 @@ class CustomerController extends Controller
         $customer->update([
             'name' => $request->name,
             'code' => Gate::allows('sales-manager') ? $request->customer_code : $customer->code,
-            'type' => $request->type,
             'customer_type' => $request->customer_type,
             'economical_number' => $request->economical_number,
             'national_number' => $request->national_number,
@@ -123,18 +128,25 @@ class CustomerController extends Controller
     {
         $this->authorize('customers-list');
 
+        if (auth()->user()->isAdmin() || auth()->user()->isCEO() || auth()->user()->isItManager()) {
+            $customers = Customer::query();
+        } else {
+            $customers = Customer::where('user_id', auth()->id());
+        }
+
         $province = $request->province == 'all' ? Province::pluck('name') : [$request->province];
         $customer_type = $request->customer_type == 'all' ? array_keys(Customer::CUSTOMER_TYPE) : [$request->customer_type];
 
-        $customers = Customer::when($request->code, function ($q) use($request){
-                $q->where('code', $request->code);
-            })
-            ->when($request->name, function ($q) use($request){
-            $q->where('name','like', "%$request->name%");
+        $customers = $customers->when($request->code, function ($q) use ($request) {
+            $q->where('code', $request->code);
         })
+            ->when($request->name, function ($q) use ($request) {
+                $q->where('name', 'like', "%{$request->name}%");
+            })
             ->whereIn('province', $province)
             ->whereIn('customer_type', $customer_type)
-            ->orderByRaw('-code DESC')->paginate(30);
+            ->orderByRaw('-code DESC')
+            ->paginate(30);
 
         return view('panel.customers.index', compact('customers'));
     }

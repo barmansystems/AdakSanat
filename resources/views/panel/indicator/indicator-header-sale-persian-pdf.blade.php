@@ -10,7 +10,6 @@
             right: 1px;
             padding: 2.3rem !important;
             direction: rtl !important;
-            line-height: 3em;
         }
         .date{
             position: absolute;

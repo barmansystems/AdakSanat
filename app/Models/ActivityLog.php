@@ -69,14 +69,14 @@ class ActivityLog extends Model
         'invoice-action' => 'اقدام سفارش',
         'delete-invoice-file' => 'حذف فایل پیش فاکتور',
         'delete-factor-file' => 'حذف فایل فاکتور',
-        'order-change-status' => 'تغییر وضعیت سفارش',
-        'order-add-desc' => 'افزودن توضحات سفارش',
+        'orders-change-status' => 'تغییر وضعیت سفارش',
+        'orders-add-desc' => 'افزودن توضحات سفارش',
 
         // buy-orders
-        'create-buy-order' => 'ثبت سفارش خرید',
-        'edit-buy-order' => 'ویرایش سفارش خرید',
-        'delete-buy-order' => 'حذف سفارش خرید',
-        'buy-order-change-status' => 'تغییر وضعیت سفارش خرید',
+        'create-buy-orders' => 'ثبت سفارش خرید',
+        'edit-buy-orders' => 'ویرایش سفارش خرید',
+        'delete-buy-orders' => 'حذف سفارش خرید',
+        'buy-orders-change-status' => 'تغییر وضعیت سفارش خرید',
 
         // sales-reports
         'create-sale-report' => 'ثبت گزارش خرید',
@@ -148,6 +148,29 @@ class ActivityLog extends Model
         'payment-create-create' => 'ثبت دستور پرداخت/دریافت',
         'payment-edit-edit' => 'ویرایش دستور پرداخت/دریافت',
         'payment-delete-delete' => 'حذف دستور پرداخت/دریافت',
+        //delete_orders
+        'create-orders' => 'ایجاد سفارش مشتری',
+        'edit-orders' => 'ویرایش سفارش مشتری',
+        'delete-orders' => 'حذف سفارش مشتری',
+        'order-action' => 'اقدام به سفارش مشتری',
+        'delete-order-file' => 'حذف فایل پیش فاکتور',
+        //Setad_Fee
+        'setad-fee-list' => 'لیست کارمزد ستاد',
+        'setad-fee-create' => 'ثبت کارمزد ستاد',
+        'setad-fee-edit' => 'ویرایش کارمزد ستاد',
+        'setad-fee-delete' => 'حذف کارمزد ستاد',
+        'setad-fee-upload' => 'آپلود رسید کارمزد ستاد',
+        'setad-fee-delete-receipt' => 'حذف رسید کارمزد ستاد',
+        //copy
+        'copy-information' => 'کپی اطلاعات',
+        'print-information' => 'پرینت اطلاعات',
+        'edit-company-information' => 'ویرایش اطلاعات شرکت',
+        // transfer
+        'transfer-list' => 'لیست ارسال کالاها',
+        'transfer-create' => 'ثبت ارسال کالا',
+        'transfer-edit' => 'ویرایش ارسال کالا',
+        'transfer-delete' => 'حذف ارسال کالا',
+        'transfer-download' => 'دانلود رسید کالا',
     ];
 
     public function user()
